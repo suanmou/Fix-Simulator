@@ -4,6 +4,10 @@ import VueRouter from 'vue-router'
 import SessionConfig from '../views/SessionConfig.vue'
 import MessageEditor from '../views/MessageEditor.vue'
 import MessageMonitor from '../views/MessageMonitor.vue'
+import TestScenarioManager from '@/views/TestScenarioManager';
+import TestReport from '@/views/TestReport';
+import RegressionTest from '@/views/RegressionTest';
+import RegressionReport from '@/views/RegressionReport';
 
 Vue.use(VueRouter)
 
@@ -27,6 +31,26 @@ const routes = [
     path: '/message-monitor',
     name: 'MessageMonitor',
     component: MessageMonitor
+  },
+  {
+    path: '/test-scenarios',
+    name: 'TestScenarioManager',
+    component: TestScenarioManager
+  },
+  {
+    path: '/test-report/:reportId',
+    name: 'TestReport',
+    component: TestReport
+  },
+  {
+    path: '/regression-test',
+    name: 'RegressionTest',
+    component: RegressionTest
+  },
+  {
+    path: '/regression-report/:reportId',
+    name: 'RegressionReport',
+    component: RegressionReport
   }
 ]
 
