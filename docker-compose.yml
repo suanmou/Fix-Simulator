@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend/config:/app/config
+    environment:
+      - FIX_PROTOCOL_VERSION=FIX.4.4
+      - QUICKFIXJ_VERSION=2.3.0
+    networks:
+      - fix-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - fix-network
+
+networks:
+  fix-network:
+    driver: bridge
